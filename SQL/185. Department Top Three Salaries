@@ -1,6 +1,0 @@
-SELECT Department, Employee, Salary from 
-(Select d.name as Department, e.name as Employee, e.salary as Salary, 
-DENSE_RANK() OVER(PARTITION BY d.name ORDER BY Salary DESC) as rnk 
-from Employee e 
-JOIN Department d on 
-e.departmentID = d.id) as Rank_list where rnk<=3;

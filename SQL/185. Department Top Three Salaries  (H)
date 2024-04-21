@@ -1,0 +1,16 @@
+SELECT Department, Employee, Salary from 
+(Select d.name as Department, e.name as Employee, e.salary as Salary, 
+DENSE_RANK() OVER(PARTITION BY d.name ORDER BY Salary DESC) as rnk 
+from Employee e 
+JOIN Department d on 
+e.departmentID = d.id) as Rank_list where rnk<=3;
+
+
+
+select Department.name as Department, e.name as Employee, e.salary as Salary from
+(Select departmentId, name, salary, DENSE_RANK() OVER(PARTITION BY departmentId ORDER BY salary DESC) as r 
+from Employee) e
+join 
+Department on
+e.departmentId = Department.id
+where r<=3;
