@@ -1,0 +1,7 @@
+with checkCon as (
+SELECT *,
+ROW_NUMBER() over(order by visit_date) as rownum,
+id-ROW_NUMBER() over(order by visit_date) as grp
+FROM Stadium 
+WHERE people >=100)
+select id, visit_date,people from checkCon where grp in(select grp from checkCon group by grp having count(1)>=3);
