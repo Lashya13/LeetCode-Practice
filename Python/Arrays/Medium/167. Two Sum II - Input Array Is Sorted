@@ -1,0 +1,20 @@
+167. Two Sum II - Input Array Is Sorted
+
+If we use Brute force - time complexity -O(n Square)
+By using the two pointers - time complexity - O(n)
+
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        l,r =0, len(numbers)-1
+
+        while l<r:
+            resSum =numbers[l]+numbers[r]
+
+            if resSum > target:
+                r =r-1
+            elif resSum < target:
+                l=l+1
+            else:
+                return [l+1, r+1]
+        return []
