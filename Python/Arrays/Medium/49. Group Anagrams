@@ -1,0 +1,21 @@
+49. Group Anagrams
+
+Solution:
+
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        #anagaram={}
+        anagaram_group=defaultdict(list)
+        '''for word in strs:
+            temp =''.join(sorted(word))
+            if temp in anagaram:
+                anagaram[temp].append(Word)
+            else:
+                anagaram[word]=[word]
+        return list(anagaram.values())'''
+
+        for word in strs:
+             sorted_words=''.join(sorted(word))
+             anagaram_group[sorted_words].append(word)
+        return list(anagaram_group.values())
+    
