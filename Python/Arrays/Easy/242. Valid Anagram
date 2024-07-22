@@ -1,0 +1,15 @@
+242. Valid Anagram
+Solution:
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        s =s.lower()
+        t =t.lower()
+        if len(s)==len(t):
+            new_s =sorted(s)
+            new_t =sorted(t)
+            if new_s==new_t:
+                return True
+            else:
+                return False
+        else:
+            return False
