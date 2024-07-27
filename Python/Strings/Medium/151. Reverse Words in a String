@@ -1,0 +1,10 @@
+151. Reverse Words in a String
+
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s= s.strip()
+        new_s =[word for word in s.split() if word]
+        rev = new_s[::-1]
+        res =' '.join(rev)
+        return res
+        
