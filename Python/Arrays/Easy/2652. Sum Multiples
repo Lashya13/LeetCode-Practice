@@ -1,0 +1,17 @@
+2652. Sum Multiples
+
+class Solution:
+    def sumOfMultiples(self, n: int) -> int:
+        sumi =0
+        for i in range(n+1):
+  
+            if i%3 ==0:
+                sumi+=i 
+            elif i%5 == 0:
+                sumi+=i
+            elif i%7==0:
+                sumi+=i 
+            else:
+                i =i+1 
+        return sumi
+        
