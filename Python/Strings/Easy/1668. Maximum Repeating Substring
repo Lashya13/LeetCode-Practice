@@ -1,0 +1,7 @@
+1668. Maximum Repeating Substring
+Partial output
+
+class Solution:
+    def maxRepeating(self, sequence: str, word: str) -> int:
+        return sequence.count(word)
+        
