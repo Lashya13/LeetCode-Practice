@@ -1,0 +1,17 @@
+796. Rotate String
+
+
+Example 1:
+
+Input: s = "abcde", goal = "cdeab"
+Output: true
+
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        for i  in range(len(s)):
+            if s[i]==goal[0]:
+                if s[i:]+s[:i]==goal:  #splitting the s and adding and checking with goal
+                    return True
+        return False
+    
+        
