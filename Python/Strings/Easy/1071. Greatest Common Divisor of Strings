@@ -1,0 +1,43 @@
+1071. Greatest Common Divisor of Strings
+
+class Solution:
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        if str1+str2 !=str2+str1:
+            return ""
+        
+        def gcd(a,b):
+            while b:
+                a,b =b,a%b
+            return a
+        
+        gcdLength =gcd(len(str1),len(str2))
+        return str1[:gcdLength]
+
+The Greatest Common Divisor (GCD) of Strings is a concept where we find the largest string that can divide two given strings. In simpler terms, it’s the longest string that, when repeated some number of times, forms both of the given strings.
+
+Example:
+Let’s consider two strings:
+
+str1 = "ABCABC"
+str2 = "ABC"
+In this case:
+
+The common divisor string is "ABC" because you can repeat it twice to form str1 ("ABC" + "ABC" = "ABCABC") and once to form str2 ("ABC").
+Key Points:
+A string X can divide a string Y if and only if Y is formed by repeating X multiple times.
+The GCD of two strings is the largest such string that can divide both.
+Steps to Find GCD of Strings:
+Check if one string is divisible by the other: For the GCD to exist, concatenating the strings in different orders should yield the same result.
+For example, for str1 and str2, check if str1 + str2 equals str2 + str1. If they are not the same, no GCD exists.
+
+Find the GCD of the lengths: Once you’ve confirmed the strings can divide each other, find the GCD of their lengths (using the standard numerical GCD method).
+Let’s say the length of str1 is m and the length of str2 is n. The GCD of the two lengths, gcd(m, n), gives you the length of the common divisor string.
+
+Extract the GCD string: The prefix of length gcd(m, n) from either string will be the GCD string.
+
+Example:
+Let’s work through the example:
+
+str1 = "ABCABC" (length 6)
+str2 = "ABC" (length 3)
+The GCD of 6 and 3 is 3. Therefore, the GCD string will be the first 3 characters of either string: "ABC".
