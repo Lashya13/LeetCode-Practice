@@ -1,19 +1,32 @@
 1768. Merge Strings Alternately
 
+Wrong Answer
+19 / 108 testcases passed
+
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        i=j=0
-        res =""
-
-        while i< len(word1) and i <len(word2):
-            res +=word1[i]+word2[i]
-            i+=1
-            j+=1
-        while i<len(word1):
-            res+=word1[i]
-            i=i+1
-        while j<len(word2):
-            res+=word2[j]
-            j=j+1
-        return res
+        merged=""
+        if len(word1) == len(word2):
+            for i,j in zip(word1,word2):
+                merged = merged+i
+                merged = merged+j
+            return merged
+        elif len(word1)>len(word2):
+            for i,j in zip(word1, word2):
+                merged = merged+i
+                merged = merged+j
+            for i in word1:
+                if i not in merged:
+                    merged = merged+i
+                
+            return merged
+        else:
+            for i,j in zip(word1, word2):
+                merged = merged+i
+                merged = merged+j
+            for j in word2:
+                if j not in merged:
+                    merged = merged+j
+                
+            return merged
         
