@@ -1,0 +1,37 @@
+1679. Max Number of K-Sum Pairs
+
+Own Solution: (12/51 test cases passed)
+
+class Solution:
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        i,j=0,1
+        count =0
+        while i<len(nums) and j<len(nums):
+            add =nums[i]+nums[j]
+            if add ==k:
+                count =count+1
+                i=i+1
+                j=i+1
+            else:
+                j=j+1
+        return count
+
+
+All test case passed:
+
+class Solution:
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        i,j = 0,len(nums)-1
+        count =0
+        while i<j:
+            add =nums[i]+nums[j]
+            if add ==k:
+                count =count+1
+                i=i+1
+                j=j-1
+            elif add<k:
+                i=i+1
+            else:
+                j=j-1
+        return count
