@@ -1,0 +1,12 @@
+643. Maximum Average Subarray I
+
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        currSum =sum(nums[:k])
+        maxAvg =currSum/k
+
+        for i in range(k,len(nums)):
+            currSum+=nums[i]-nums[i-k]
+            currAvg =currSum/k
+            maxAvg =max(maxAvg, currAvg)
+        return maxAvg
