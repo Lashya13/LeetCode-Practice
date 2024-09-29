@@ -1,0 +1,21 @@
+209. Minimum Size Subarray Sum (Sliding window)
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        left =0
+        right =0
+        #minimumValue =[]
+        minimumValue =100000000000000000
+        subSum=0
+
+        while right<len(nums):
+            subSum+=nums[right]
+
+            while subSum>=target:
+                #minimumValue.append(right-left+1)
+                minimumValue = min(minimumValue, right-left+1)
+                subSum-=nums[left]
+                left+=1
+            right+=1
+        #return 0 if len(minimumValue)==0 else min(minimumValue)
+        return 0 if minimumValue ==100000000000000000 else minimumValue
