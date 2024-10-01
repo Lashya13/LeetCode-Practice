@@ -1,0 +1,16 @@
+2215. Find the Difference of Two Arrays  - using set
+
+
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        nums1 =set(nums1)
+        nums2 =set(nums2)
+
+        res =[]
+
+        diff1 =nums1.difference(nums2)
+        res.append(list(diff1))
+        diff2 =nums2.difference(nums1)
+        res.append(list(diff2))
+
+        return res
