@@ -1,0 +1,15 @@
+724. Find Pivot Index
+
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        
+        for i in range(len(nums)):
+            mid =i
+
+            left =sum(nums[:mid])
+            right =sum(nums[mid+1:])
+
+            if left ==right:
+                return mid
+        else:
+            return -1
