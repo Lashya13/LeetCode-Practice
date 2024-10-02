@@ -1,0 +1,54 @@
+394. Decode String
+
+
+class Solution:
+    def decodeString(self, s: str) -> str:
+        stack =[]
+        currNum =0
+        currStr=""
+        for i in s:
+            if i.isdigit():
+                currNum = currNum*10 +int(i)
+            elif i =='[':
+                stack.append((currStr,currNum))
+                currStr =""
+                currNum =0
+            elif i.isalpha():
+                currStr+=i
+            elif i=="]":
+                prevStr,num =stack.pop()
+                currStr =prevStr + currStr*num
+        return currStr
+
+
+
+###########################
+
+s = "3[a]2[bc]"
+stack = []
+currNum =0
+currStr =""
+
+for i in s:
+  if i.isdigit():
+    currNum =currNum*10 +int(i)
+    print ("Currnum: ", currNum)
+    
+  elif i=="[":
+    print(currStr,currNum)
+    stack.append((currStr,currNum))
+    print(stack)
+    currNum =0
+    currStr=""
+  elif i.isalpha():
+    print("curr:",currStr)
+    currStr+=i 
+    print("curr1:",currStr)
+  elif i=="]":
+    prevStr, num =stack.pop()
+    print(prevStr,num)
+    print(currStr)
+    currStr = prevStr + currStr*num
+    print(currStr)
+print(currStr)
+    
