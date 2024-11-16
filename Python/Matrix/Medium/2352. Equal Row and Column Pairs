@@ -1,0 +1,25 @@
+2352. Equal Row and Column Pairs
+
+
+class Solution:
+    def equalPairs(self, grid: List[List[int]]) -> int:
+        row_count ={}
+
+        for row in grid:
+            row_entry =tuple(row)
+
+            if row_entry in row_count:
+                row_count[row_entry]+=1
+            else:
+                row_count[row_entry]=1
+        
+        columns =list(zip(*grid))
+
+        count =0 
+        for col in columns:
+            col_entry =tuple(col)
+
+            if col_entry in row_count:
+                count += row_count[col_entry]
+
+        return count
