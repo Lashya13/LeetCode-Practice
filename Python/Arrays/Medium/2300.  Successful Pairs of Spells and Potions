@@ -1,0 +1,20 @@
+2300.  Successful Pairs of Spells and Potions
+
+51/56 test case passed
+
+class Solution:
+    def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+
+        add =[]
+
+        for i in spells:
+            mult =[i*x for x in potions]
+        
+            count =0
+            for j in mult:
+                if j>=success:
+                    count+=1
+            add.append(count)
+
+        return add
+        
